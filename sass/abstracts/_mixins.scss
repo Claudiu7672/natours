@@ -19,15 +19,16 @@
 0 - 600px:  Phone
 600 - 900px: Tablet portrait
 900 - 1200px: Tablet landscape
-[1200 - 1800]: is where our normal styles apply
+1200 - 1600px: Laptop
+[1200 - 1800]: is where most of our normal styles apply
 1800px + : Big desktop
-*/
 
-/*
+
 $breakpoint argument choices:
 - phone
 - tab-port
 - tab-land
+- laptop
 - big-desktop
 
 ORDER: Base + Typography > General layout + Grid > Page layout > Components
@@ -38,25 +39,31 @@ ORDER: Base + Typography > General layout + Grid > Page layout > Components
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
     // 600px
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       @content;
     }
   }
   @if $breakpoint == tab-port {
     //900px
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       @content;
     }
   }
   @if $breakpoint == tab-land {
     //1200px
-    @media (max-width: 75em) {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    //1600px
+    @media only screen and (max-width: 100em) {
       @content;
     }
   }
   @if $breakpoint == big-desktop {
     //1800px
-    @media (min-width: 112.5em) {
+    @media only screen and (min-width: 112.5em) {
       @content;
     }
   }

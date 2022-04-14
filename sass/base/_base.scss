@@ -12,6 +12,11 @@ html {
 
   // The phone media query is not necesssary because is has the same font-size as tab-port, which already applies
 
+  // width < 1600 ?
+  // @include respond(laptop) {
+  //   font-size: 68.75%; // 1rem = 11px; 11px/16px = 56.25%
+  // }
+
   // width < 1200 ?
   @include respond(tab-land) {
     font-size: 56.25%; // 1rem = 9px; 9px/16px = 56.25%
@@ -41,4 +46,9 @@ body {
   @include respond(tab-port) {
     padding: 0;
   }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: white;
 }
